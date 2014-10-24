@@ -2,7 +2,7 @@ import urllib.request
 
 
 def writeToFile(saveName, sourceCode):
-    textFile = open("sourceCodeDirectory\\" + saveName + ".txt", "w")
+    textFile = open("sourceCodeDirectory/" + saveName + ".txt", "w")
     textFile.write(sourceCode)
     textFile.close()
 
@@ -14,7 +14,7 @@ def grabSource(inputUrl):
     s = str(s)
     return s
 
-for x in range(108, 123):  # represents letters
+for x in range(97, 123):  # represents letters
     print(x,chr(x))
     x = chr(x)
     sourceCode = grabSource("http://www.mnsu.edu/find/people.php?givenname="+x+"&sn=&employeetype=")

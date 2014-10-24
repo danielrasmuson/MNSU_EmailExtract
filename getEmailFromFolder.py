@@ -1,9 +1,11 @@
 #Note - Make sure to change the name of the path
+import codecs
 import re
 import string
 from os import listdir
 from os.path import isfile, join
 
+# from chardet import detect
 
 def lastCapital(inputStr):
     indexUpper = ""
@@ -13,14 +15,44 @@ def lastCapital(inputStr):
     return indexUpper
 
 
-folderName = "sourceCodeDirectoryOct2013"
-path = "C:\\Users\\Daniel\\Documents\\GitHub\\MNSU_EmailExtract\\" + folderName
+folderName = "sourceCodeDirectory"
+# path = "\\Users\\danielrasmuson\\Desktop\\MNSU_EmailExtract\\"+folderName
+path = "./"+folderName
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
 outputFile = open("xcodeList2.csv", "w")
 biggest = 0
 for fileName in onlyfiles:
-    textFile = open(folderName + "\\" + fileName, "r")
-    fullText = textFile.read().split()
+    # textFile = open(folderName + "/" + fileName, "r", )
+
+    # encoding = lambda x: detect(x)['encoding']
+    # print encoding(line)
+    #open it with utf-8 encoding 
+    # f=codecs.open(folderName + "/" + fileName,"r",encoding='utf-8')
+    #read the file to unicode string
+    # sfile=f.read()
+
+    #check the encoding type
+    # print type(file) #it's unicode
+
+    #unicode should be encoded to standard string to display it properly
+    # cleanText = sfile.encode('utf-8')
+    #check the type of encoded string
+
+    # print type(sfile.encode('utf-8'))
+    # text = textFile.read()
+    # cleanText = filter(lambda x: x in string.printable, text)
+    # f = open(folderName + "/" + fileName, 'w')
+    # f.write(foo.encode('utf8'))
+    # f.close()
+    # f = codecs.open(folderName + "/" + fileName, encoding='utf-8')
+    # cleanText = ""
+    # for line in f:
+    #     cleanText += repr(line)
+    #     print(cleanText)
+
+    fullText = cleanText.decode('utf-8').read()
+
+    fullText = cleanText.split()
     textFile.close()
     fullTextStr = " ".join(fullText)
     for word in fullText:
